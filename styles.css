@@ -203,8 +203,8 @@ button {
 
 .theme-switch {
   position: relative;
-  width: 3.15rem;
-  height: 1.55rem;
+  width: 3.35rem;
+  height: 1.7rem;
   border-radius: 999px;
   background: #0a0a0a;
   border: 1.5px solid #3a3a3a;
@@ -215,17 +215,39 @@ button {
 .theme-knob {
   position: absolute;
   top: 50%;
-  left: calc(100% - 1.3rem - 0.18rem);
-  width: 1.3rem;
-  height: 1.3rem;
+  left: calc(100% - 1.35rem - 0.16rem);
+  width: 1.35rem;
+  height: 1.35rem;
   border-radius: 50%;
   background: #ffffff;
   transform: translateY(-50%);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
   transition: left 0.35s var(--ease), background 0.35s var(--ease);
+  display: grid;
+  place-items: center;
 }
 
-/* Modo claro: trilha clara, knob escuro à esquerda */
+.theme-icon {
+  grid-area: 1 / 1;
+  width: 0.78rem;
+  height: 0.78rem;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
+}
+
+/* Modo escuro: lua no knob */
+.theme-icon-sun {
+  color: var(--theme-sun);
+  opacity: 0;
+  transform: scale(0.6) rotate(-45deg);
+}
+
+.theme-icon-moon {
+  color: #4a5d78;
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Modo claro: trilha clara, knob escuro à esquerda com sol */
 html[data-theme="light"] .theme-switch {
   background: #d6d6d6;
   border-color: #c4c4c4;
@@ -233,9 +255,20 @@ html[data-theme="light"] .theme-switch {
 }
 
 html[data-theme="light"] .theme-knob {
-  left: 0.18rem;
+  left: 0.16rem;
   background: #111111;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+html[data-theme="light"] .theme-icon-sun {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  color: var(--theme-sun);
+}
+
+html[data-theme="light"] .theme-icon-moon {
+  opacity: 0;
+  transform: scale(0.6) rotate(45deg);
 }
 
 .nav-brand {
