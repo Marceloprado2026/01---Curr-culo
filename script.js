@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPortfolioModal();
   initActiveNav();
   initHeroTags();
+  initProjectFilters();
   initHomeFab();
 });
 
@@ -67,16 +68,19 @@ function initNav() {
     { passive: true }
   );
 
+  function setMenuOpen(open) {
+    nav.classList.toggle("open", open);
+    links?.classList.toggle("open", open);
+    toggle?.setAttribute("aria-expanded", String(open));
+    toggle?.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+  }
+
   toggle?.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    links.classList.toggle("open");
+    setMenuOpen(!nav.classList.contains("open"));
   });
 
   links?.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => {
-      nav.classList.remove("open");
-      links.classList.remove("open");
-    });
+    a.addEventListener("click", () => setMenuOpen(false));
   });
 }
 
@@ -106,8 +110,8 @@ function initReveal() {
 
 /* ---- Barras de idioma ---- */
 function initLangBars() {
-  const cards = document.querySelectorAll(".lang-card");
-  if (!cards.length) return;
+  const items = document.querySelectorAll(".lang-card, .lang-item");
+  if (!items.length) return;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -121,12 +125,12 @@ function initLangBars() {
     { threshold: 0.4 }
   );
 
-  cards.forEach((card) => observer.observe(card));
+  items.forEach((item) => observer.observe(item));
 }
 
 /* ---- Nav ativa por seção ---- */
 function initActiveNav() {
-  const sections = document.querySelectorAll("section[id], header[id]");
+  const sections = document.querySelectorAll("section[id], header[id], footer[id]");
   const navAnchors = document.querySelectorAll(".nav-links a");
 
   const observer = new IntersectionObserver(
@@ -249,6 +253,22 @@ const GALLERY = [
         author: "Marcelo Prado",
         src: "assets/tecnicas-mistas-1.jpg",
         desc: "Estudo anatômico de duas mãos em técnicas mistas, com hachuras e volume sobre papel tonalizado.",
+      },
+      {
+        title: "Gestos e Arestas",
+        technique: "Grafite e carvão",
+        year: "2021",
+        author: "Marcelo Prado",
+        src: "assets/maos-2.jpg",
+        desc: "Variação do estudo de mãos com ênfase em arestas de luz e profundidade das sombras.",
+      },
+      {
+        title: "Contato",
+        technique: "Carvão e esfumado",
+        year: "2020",
+        author: "Marcelo Prado",
+        src: "assets/maos-3.jpg",
+        desc: "Composição íntima das mãos em contato, explorando textura do papel e contraste tonal.",
       },
     ],
   },
@@ -403,7 +423,10 @@ function initPortfolioModal() {
       openModal(key);
     });
 
-    card.addEventListener("click", () => openModal(key));
+    // Só abre pelo card quando o botão não cobre o card inteiro (versão com overlay)
+    if (btn && !btn.classList.contains("portfolio-open")) {
+      card.addEventListener("click", () => openModal(key));
+    }
   });
 
   btnPrevProject?.addEventListener("click", (e) => {
@@ -466,7 +489,7 @@ function initPortfolioModal() {
   });
 }
 
-/* ---- Tags Ilustração / Fotografia / Grafite ---- */
+/* ---- Tags Ilustração / Fotografia / Grafite (legado) ---- */
 function initHeroTags() {
   const tags = document.querySelectorAll(".hero-tags .tag");
   const cards = document.querySelectorAll(".portfolio-card");
@@ -504,6 +527,30 @@ function initHeroTags() {
   });
 }
 
+/* ---- Filtros de projetos (index.html) ---- */
+function initProjectFilters() {
+  const buttons = document.querySelectorAll(".filter-btn");
+  const cards = document.querySelectorAll(".portfolio-card");
+  if (!buttons.length || !cards.length) return;
+
+  function applyFilter(filter) {
+    buttons.forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.filter === filter);
+    });
+
+    cards.forEach((card) => {
+      const match = filter === "all" || card.dataset.category === filter;
+      card.hidden = !match;
+      card.classList.toggle("is-dimmed", false);
+      card.classList.toggle("is-highlighted", false);
+    });
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => applyFilter(btn.dataset.filter || "all"));
+  });
+}
+
 /* ---- Botão flutuante Home ---- */
 function initHomeFab() {
   const fab = document.getElementById("homeFab");
@@ -512,7 +559,7 @@ function initHomeFab() {
 
   const mediaEls = () =>
     document.querySelectorAll(
-      ".portrait-img, .portfolio-thumb img, .lightbox.open img"
+      ".portrait-img, .hero-portrait, .portfolio-thumb img, .lightbox.open img"
     );
 
   function updateVisibility() {

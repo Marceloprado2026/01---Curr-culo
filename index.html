@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Marcelo Prado Artes — artista visual, ilustrador e fotógrafo. Currículo e portfólio em ilustração, fotografia e retratos em grafite." />
+  <title>Marcelo Prado Artes</title>
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("mpa-theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        else document.documentElement.setAttribute("data-theme", "light");
+      } catch (e) {
+        document.documentElement.setAttribute("data-theme", "light");
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="canvas-bg" aria-hidden="true">
+    <canvas id="particles"></canvas>
+    <div class="brush-strokes"></div>
+  </div>
+
+  <nav class="nav" id="nav">
+    <a href="#inicio" class="nav-brand">Marcelo Prado <span>Artes</span></a>
+    <div class="nav-end">
+      <button
+        type="button"
+        class="theme-toggle"
+        id="themeToggle"
+        role="switch"
+        aria-checked="false"
+        aria-label="Ativar modo escuro"
+        title="Alternar modo claro / escuro"
+      >
+        <span class="theme-switch" aria-hidden="true">
+          <span class="theme-knob"></span>
+        </span>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#experiencia">Experiência</a></li>
+      <li><a href="#formacao">Formação</a></li>
+      <li><a href="#idiomas">Idiomas</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero: marca + proposta + CTA + imagem dominante -->
+  <header class="hero hero-fullbleed section" id="inicio">
+    <div class="hero-media">
+      <img
+        src="assets/artista-retrato.jpg"
+        alt="Retrato de Marcelo Prado"
+        class="hero-portrait"
+      />
+      <div class="hero-media-veil" aria-hidden="true"></div>
+    </div>
+
+    <div class="hero-content reveal">
+      <p class="eyebrow">Artista Visual · Ilustrador · Fotógrafo</p>
+      <h1>Marcelo Prado <em>Artes</em></h1>
+      <p class="lead">
+        Ilustração, fotografia e retratos em grafite — narrativas visuais
+        que atravessam o papel, a lente e o desenho.
+      </p>
+      <div class="hero-cta">
+        <a href="#projetos" class="btn btn-primary">
+          Ver portfólio
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="#experiencia" class="btn btn-ghost">Trajetória</a>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Explorar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </header>
+
+  <!-- Experiência -->
+  <section class="section experience" id="experiencia">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-num">01</span>
+        <div>
+          <h2>Experiência profissional</h2>
+          <p>Percurso artístico e colaborações em artes visuais</p>
+        </div>
+      </header>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-body">
+            <span class="period">2021 — Atual</span>
+            <h3>Artista Visual Independente</h3>
+            <p class="role">Marcelo Prado Artes · Estúdio próprio</p>
+            <p>
+              Séries autorais em grafite e ilustração digital, ensaios fotográficos
+              de retrato e comissões para editoras, galerias e marcas culturais.
+              Curadoria de exposições online e workshops de desenho observacional.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-body">
+            <span class="period">2017 — 2021</span>
+            <h3>Ilustrador Editorial</h3>
+            <p class="role">Estúdio Linha Azul · São Paulo</p>
+            <p>
+              Capas, vinhetas e séries ilustradas para publicações literárias e
+              culturais. Técnicas mistas de tinta, aquarela e acabamento digital.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-marker" aria-hidden="true"></div>
+          <div class="timeline-body">
+            <span class="period">2014 — 2017</span>
+            <h3>Fotógrafo de Retrato</h3>
+            <p class="role">Ateliê Luz Fria · Campinas</p>
+            <p>
+              Retratos artísticos e editoriais com ênfase em luz natural e
+              composição clássica. Documentação de ateliês e projetos culturais.
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formação -->
+  <section class="section formation" id="formacao">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-num">02</span>
+        <div>
+          <h2>Formação</h2>
+          <p>Bases acadêmicas e especializações em artes</p>
+        </div>
+      </header>
+
+      <ul class="formation-list">
+        <li class="formation-item reveal">
+          <h3>Bacharelado em Artes Visuais</h3>
+          <p class="meta">Universidade Estadual de Campinas · 2010–2014</p>
+          <p>Ênfase em desenho, pintura e práticas de atelier. TCC sobre o retrato contemporâneo em grafite.</p>
+        </li>
+        <li class="formation-item reveal">
+          <h3>Especialização em Fotografia</h3>
+          <p class="meta">Istituto Europeo di Design · 2015–2016</p>
+          <p>Linguagem fotográfica, direção de arte e pós-produção com foco em retrato e narrativa visual.</p>
+        </li>
+        <li class="formation-item reveal">
+          <h3>Workshop Avançado de Ilustração</h3>
+          <p class="meta">School of Visual Arts — NYC · 2018</p>
+          <p>Narrativa ilustrada, composição e experimentação com materiais tradicionais e digitais.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Idiomas -->
+  <section class="section languages" id="idiomas">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-num">03</span>
+        <div>
+          <h2>Idiomas</h2>
+          <p>Comunicação para projetos e residências internacionais</p>
+        </div>
+      </header>
+
+      <ul class="lang-list">
+        <li class="lang-item reveal" data-level="100">
+          <div class="lang-row">
+            <h3>Português</h3>
+            <span>Nativo</span>
+          </div>
+          <div class="lang-bar"><span style="--level:100%"></span></div>
+        </li>
+        <li class="lang-item reveal" data-level="85">
+          <div class="lang-row">
+            <h3>Inglês</h3>
+            <span>Avançado — C1</span>
+          </div>
+          <div class="lang-bar"><span style="--level:85%"></span></div>
+        </li>
+        <li class="lang-item reveal" data-level="70">
+          <div class="lang-row">
+            <h3>Espanhol</h3>
+            <span>Intermediário — B2</span>
+          </div>
+          <div class="lang-bar"><span style="--level:70%"></span></div>
+        </li>
+        <li class="lang-item reveal" data-level="45">
+          <div class="lang-row">
+            <h3>Italiano</h3>
+            <span>Básico — A2</span>
+          </div>
+          <div class="lang-bar"><span style="--level:45%"></span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Projetos / Portfólio -->
+  <section class="section projects" id="projetos">
+    <div class="section-inner">
+      <header class="section-header reveal">
+        <span class="section-num">04</span>
+        <div>
+          <h2>Projetos</h2>
+          <p>Seleção do portfólio — abra para ver a galeria completa</p>
+        </div>
+      </header>
+
+      <div class="project-filters reveal" role="group" aria-label="Filtrar por técnica">
+        <button type="button" class="filter-btn active" data-filter="all">Todos</button>
+        <button type="button" class="filter-btn" data-filter="ilustracao">Ilustração</button>
+        <button type="button" class="filter-btn" data-filter="fotografia">Fotografia</button>
+        <button type="button" class="filter-btn" data-filter="grafite">Grafite</button>
+      </div>
+
+      <div class="portfolio-grid">
+        <article class="portfolio-card reveal" data-project="grafite" data-category="grafite">
+          <button type="button" class="portfolio-open open-project" aria-label="Abrir projeto Retratos em Grafite">
+            <div class="portfolio-thumb">
+              <img src="assets/portfolio-grafite.jpg" alt="Retrato em perfil — grafite" />
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-cat">Grafite</span>
+              <h3>Retratos em Grafite</h3>
+              <p>Série de estudos de perfil com sombreamento clássico e papel texturizado.</p>
+            </div>
+          </button>
+        </article>
+
+        <article class="portfolio-card reveal" data-project="foto" data-category="fotografia">
+          <button type="button" class="portfolio-open open-project" aria-label="Abrir projeto Luz Azul Urbana">
+            <div class="portfolio-thumb">
+              <img src="assets/portfolio-foto.jpg" alt="Ensaio fotográfico blue hour" />
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-cat">Fotografia</span>
+              <h3>Luz Azul Urbana</h3>
+              <p>Ensaio fotográfico noturno explorando atmosfera, reflexos e silhuetas.</p>
+            </div>
+          </button>
+        </article>
+
+        <article class="portfolio-card reveal" data-project="ilustracao" data-category="ilustracao">
+          <button type="button" class="portfolio-open open-project" aria-label="Abrir projeto Correntes Visuais">
+            <div class="portfolio-thumb">
+              <img src="assets/portfolio-ilustracao.jpg" alt="Ilustração de ondas abstratas" />
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-cat">Ilustração</span>
+              <h3>Correntes Visuais</h3>
+              <p>Ilustrações digitais com formas orgânicas em tons de cobalto e ciano.</p>
+            </div>
+          </button>
+        </article>
+
+        <article class="portfolio-card reveal" data-project="tecnicas" data-category="grafite">
+          <button type="button" class="portfolio-open open-project" aria-label="Abrir projeto Técnicas mistas">
+            <div class="portfolio-thumb">
+              <img src="assets/tecnicas-mistas-1.jpg" alt="Estudo de mãos — Técnicas mistas" />
+            </div>
+            <div class="portfolio-info">
+              <span class="portfolio-cat">Técnicas mistas</span>
+              <h3>Técnicas mistas</h3>
+              <p>Estudos anatômicos em grafite e carvão sobre papel tonalizado.</p>
+            </div>
+          </button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <footer class="footer" id="contato">
+    <div class="footer-inner reveal">
+      <p class="footer-brand">Marcelo Prado <span>Artes</span></p>
+      <p class="footer-tagline">Ilustração · Fotografia · Retratos em Grafite</p>
+      <a class="footer-email" href="mailto:contato@marcelopradoartes.com">contato@marcelopradoartes.com</a>
+      <div class="footer-links">
+        <a href="mailto:contato@marcelopradoartes.com" class="social-icon" aria-label="E-mail">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="#" class="social-icon" aria-label="Behance">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M22 7h-7M15 7a5 5 0 000 10h2a5 5 0 000-10zM2 12h6M2 7h5a3 3 0 010 6H2V7zM2 13h5a3 3 0 010 6H2v-6z"/></svg>
+        </a>
+      </div>
+      <p class="copyright">© <span id="year"></span> Marcelo Prado Artes. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a href="#inicio" class="home-fab" id="homeFab" aria-label="Voltar ao início">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V20h5v-5h4v5h5V9.5"/>
+    </svg>
+  </a>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="projectModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="lightbox-backdrop" data-close></div>
+
+    <button class="lightbox-close" data-close aria-label="Fechar galeria">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      <span>Fechar</span>
+    </button>
+
+    <button class="lightbox-nav lightbox-h lightbox-prev-project" id="lightboxPrevProject" type="button" aria-label="Projeto anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+      <span class="nav-hint">Projeto<br>anterior</span>
+    </button>
+
+    <button class="lightbox-nav lightbox-h lightbox-next-project" id="lightboxNextProject" type="button" aria-label="Próximo projeto">
+      <span class="nav-hint">Próximo<br>projeto</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <button class="lightbox-nav lightbox-v lightbox-prev-image" id="lightboxPrevImage" type="button" aria-label="Imagem anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+      <span class="nav-hint">Imagem anterior</span>
+    </button>
+
+    <button class="lightbox-nav lightbox-v lightbox-next-image" id="lightboxNextImage" type="button" aria-label="Próxima imagem">
+      <span class="nav-hint">Próxima imagem</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+    </button>
+
+    <div class="lightbox-stage">
+      <figure class="lightbox-figure">
+        <div class="lightbox-image-wrap">
+          <button type="button" class="lightbox-zoom-trigger" id="lightboxZoomTrigger" aria-label="Ampliar imagem">
+            <img id="modalImage" src="" alt="" />
+            <span class="zoom-hint" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>
+              </svg>
+            </span>
+          </button>
+          <div class="lightbox-dots" id="modalDots" aria-hidden="true"></div>
+        </div>
+        <figcaption class="lightbox-meta">
+          <p class="lightbox-project-label" id="modalProjectLabel">Projeto 1 / 4</p>
+          <p class="lightbox-counter" id="modalCounter">Imagem 1 / 3</p>
+          <h3 id="modalTitle"></h3>
+          <dl class="lightbox-details">
+            <div>
+              <dt>Técnica</dt>
+              <dd id="modalTechnique"></dd>
+            </div>
+            <div>
+              <dt>Ano</dt>
+              <dd id="modalYear"></dd>
+            </div>
+            <div>
+              <dt>Autor</dt>
+              <dd id="modalAuthor"></dd>
+            </div>
+          </dl>
+          <p class="lightbox-desc" id="modalDesc"></p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="lightbox-keys" aria-hidden="true">
+      ↑ ↓ imagens · ← → projetos · clique na lupa para zoom · Esc para fechar
+    </p>
+
+    <div class="image-zoom" id="imageZoom" aria-hidden="true">
+      <img id="zoomImage" src="" alt="" />
+      <p class="image-zoom-hint">↑ ↓ navegar imagens · clique na imagem para sair do zoom</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
